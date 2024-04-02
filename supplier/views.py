@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse('Supplier index window')
+    return render(request, 'suppliers.html')
 
 def register(request):
-    return HttpResponse('Supplier register window')
+    return render(request, 'register_supplier.html')
