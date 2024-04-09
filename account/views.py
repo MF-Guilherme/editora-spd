@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-def register(request):
+def account_register(request):
     return HttpResponse('Account register window')
 
-def index(request):
+def account_index(request):
     return HttpResponse('Account index')
