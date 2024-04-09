@@ -2,10 +2,10 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Supplier
 
-def index(request):
+def supplier_index(request):
     return render(request, 'suppliers.html')
 
-def register(request):
+def supplier_register(request):
     if request.method == 'GET':
         suppliers = Supplier.objects.all().order_by('name')
         return render(request, 'register_supplier.html', {'suppliers': suppliers})
