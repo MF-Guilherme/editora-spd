@@ -1,9 +1,11 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
 
-def index(request):
-    pass
+def author_index(request):
+    return HttpResponse('Author Index')
 
 
-def register(request):
-    pass
+def author_register(request):
+    return HttpResponse('Author Register')
+
