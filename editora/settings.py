@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'supplier',
     'account',
     'author',
+    'book',
 ]
 
 MIDDLEWARE = [
