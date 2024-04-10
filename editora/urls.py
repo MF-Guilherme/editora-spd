@@ -6,4 +6,5 @@ urlpatterns = [
     path('suppliers/', include('supplier.urls')),
     path('accounts/', include('account.urls')),
     path('authors/', include('author.urls')),
+    path('books/', include('book.urls')),
 ]
