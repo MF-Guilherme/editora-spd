@@ -5,5 +5,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('suppliers/', include('supply.urls')),
     path('library/', include('library.urls')),
+    path('assembly/', include('automaker.urls')),
 
 ]

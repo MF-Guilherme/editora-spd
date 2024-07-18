@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'supply',
     'library',
+    'automaker',
 ]
 
 MIDDLEWARE = [

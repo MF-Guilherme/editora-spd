@@ -10,7 +10,10 @@ def supplier_index(request):
 def supplier_register(request):
     if request.method == 'GET':
         suppliers = Supplier.objects.all().order_by('name')
-        return render(request, 'supplier_register.html', {'suppliers': suppliers})
+        return render(
+            request,
+            'supplier_register.html', {'suppliers': suppliers}
+            )
     elif request.method == 'POST':    
         name = request.POST.get('name')
         supplier = Supplier(name=name)
