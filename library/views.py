@@ -35,3 +35,16 @@ def author_update(request, author_id):
         author.save()
         messages.success(request, 'Nome do autor atualizado com sucesso!')
         return redirect('/library/author_register')
+
+
+def author_delete(request, author_id):
+    if request.method == 'GET':
+        author = Author.objects.filter(id=author_id).first()
+        messages.warning(request,
+                         'Deseja excluir permanentemente o autor abaixo?')
+        return render(request, 'author_delete.html', {'author': author})
+    elif request.method == 'POST':
+        author = Author.objects.filter(id=author_id).first()
+        author.delete()
+        messages.success(request, 'Autor excluído com sucesso')
+        return redirect('/library/author_register')
