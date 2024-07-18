@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="container">
+        <h5 class="mt-3 mb-0">Novo nome:</h5>
+        <form class="form-validation" method="POST" action="{% url 'library:author_update' author.id %}">{% csrf_token %}
+            <div class="col-12 w-50">
+                <div class="input-group mt-1 mb-3">
+                    <input value="{{author}}" type="text" class="form-control" placeholder="Nome do Fornecedor" aria-label="Nome do fornecedor" name="author-name" id="">
+                    <a href="{% url "library:author_register" %}" class="btn btn-danger">Cancelar</a>
+                    <button class="btn btn-primary" type="submit" id="">Atualizar</button>
+                </div>
+                <div class="input-group mb-3">
+                    <select id="search-results" class="form-select" size="5" style="display: none;"></select>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
