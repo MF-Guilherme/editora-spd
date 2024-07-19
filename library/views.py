@@ -8,10 +8,6 @@ def library_index(request):
     return render(request, 'books.html')
 
 
-def book_register(request):
-    return render(request, 'book_register.html')
-
-
 def author_register(request):
     if request.method == 'GET':
         authors = Author.objects.all().order_by('-id')
@@ -48,3 +44,7 @@ def author_delete(request, author_id):
         author.delete()
         messages.success(request, 'Autor excluído com sucesso')
         return redirect('/library/author_register')
+
+
+def book_register(request):
+    return render(request, 'book_register.html')
