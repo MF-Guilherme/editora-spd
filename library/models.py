@@ -10,4 +10,7 @@ class Author(models.Model):
 
 class Book(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    published_at = models.DateField()
+    published_at = models.CharField(max_length=4)
+
+    def __str__(self):
+        return self.published_at
