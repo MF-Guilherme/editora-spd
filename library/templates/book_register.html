@@ -54,7 +54,7 @@
                         <td class="text-center">{{book}}</td>
                         <td class="text-center">
                             <div class="d-flex justify-content-center">
-                                <a href="#" class="btn btn-primary py-1 px-1 me-1">Editar</a>
+                                <a href="{% url "library:book_update" book.id %}" class="btn btn-primary py-1 px-1 me-1">Editar</a>
                                 <a href="#" class="btn btn-danger py-1 px-1 ms-1">Excluir</a>
                             </div>
                         </td>

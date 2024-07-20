@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.core.exceptions import ValidationError
 from .models import Book, Author
 from django.http import HttpResponse
 
@@ -54,3 +55,25 @@ def book_register(request):
         book.save()
         messages.success(request, 'Livro cadastrado com sucesso!')
         return redirect('/library/books')
+
+
+def book_update(request, book_id):
+    if request.method == 'GET':
+        book = Book.objects.get(id=book_id)
+        authors = Author.objects.all().order_by('name')
+        return render(request, 'book_update.html', {'book': book, 'authors': authors})
+    elif request.method == 'POST':
+        try:
+            book = Book.objects.get(id=book_id)
+            new_author = request.POST.get('author')
+            new_pub = request.POST.get('year-publication')
+            book.author_id = int(new_author)
+            book.published_at = new_pub
+            book.full_clean()
+            book.save()
+            messages.success(request, 'Livro atualizado com sucesso!')
+        except ValidationError as e:
+            error_message = e.message_dict.get('published_at', ["Erro desconhecido"])[0]
+            messages.error(request, error_message)
+        finally:
+            return redirect('/library/books')
