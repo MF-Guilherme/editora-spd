@@ -3,11 +3,11 @@
 {% block body %}
     <div class="container">
         
-        <form class="form-validation" method="POST" action="{% url 'library:author_delete' author.id %}">{% csrf_token %}
+        <form class="form-validation" method="POST" action="{% url 'library:book_delete' book.id %}">{% csrf_token %}
             <div class="col-12 w-50">
                 <div class="input-group mt-1 mb-3">
-                    <h6 class="mt-3 me-3">{{author}}<h6>
-                    <a href="{% url "library:authors" %}" class="btn btn-primary">Cancelar</a>
+                    <h6 class="mt-3 me-3">Do(a) Autor(a): {{book.author.name}} publicado em {{book}}?<h6>
+                    <a href="{% url "library:books" %}" class="btn btn-primary">Cancelar</a>
                     <button class="btn btn-danger" type="submit" id="">Excluir</button>
                 </div>
                 <div class="input-group mb-3">

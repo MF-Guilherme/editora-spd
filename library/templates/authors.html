@@ -3,7 +3,7 @@
 {% block body %}
 <div class="container">
     <h5 class="mt-3 mb-0">Cadastre um novo Autor:</h5>
-    <form class="form-validation" method="POST" action="{% url 'library:author_register' %}">{% csrf_token %}
+    <form class="form-validation" method="POST" action="{% url 'library:authors' %}">{% csrf_token %}
         <div class="col-12 w-50">
             <div class="input-group mt-1 mb-3">
                 <input value="" type="text" class="form-control" placeholder="Nome do Autor" aria-label="Nome do autor" name="author-name" id="">
