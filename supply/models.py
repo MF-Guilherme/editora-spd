@@ -11,3 +11,6 @@ class Supplier(models.Model):
 class Account(models.Model):
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
     account_number = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.account_number
