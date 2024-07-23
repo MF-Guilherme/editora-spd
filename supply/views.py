@@ -1,10 +1,7 @@
+from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Supplier
-
-
-def supplier_index(request):
-    return render(request, 'suppliers.html')
+from .models import Supplier, Account
 
 
 def supplier_register(request):
@@ -12,19 +9,11 @@ def supplier_register(request):
         suppliers = Supplier.objects.all().order_by('name')
         return render(
             request,
-            'supplier_register.html', {'suppliers': suppliers}
+            'suppliers.html', {'suppliers': suppliers}
             )
-    elif request.method == 'POST':    
+    elif request.method == 'POST':
         name = request.POST.get('name')
         supplier = Supplier(name=name)
         supplier.save()
-        print('cadastro efetuado com sucesso')
+        messages.success(request, 'Fornecedor cadastrado com sucesso!')
         return redirect("/suppliers/")
-
-
-def account_register(request):
-    return HttpResponse('Account register window')
-
-
-def account_index(request):
-    return HttpResponse('Account index')
